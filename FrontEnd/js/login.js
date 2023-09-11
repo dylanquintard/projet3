@@ -32,3 +32,8 @@ document.getElementById('login-form').addEventListener('submit', async function(
         document.getElementById('error-message').textContent = 'Identifiants invalides. Veuillez réessayer.';
     }
 });
+
+function logout() {
+    localStorage.removeItem('token');
+    window.location.href = 'index.html';
+}

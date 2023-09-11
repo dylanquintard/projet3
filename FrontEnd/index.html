@@ -10,6 +10,9 @@
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
 </head>
+<div id="editMode" class="editionMode">
+	<img src="assets/icons/Vector.png"><a href="#">Mode édition</a>
+</div>
 <body>
 <header>
 	<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
@@ -17,8 +20,8 @@
 		<ul>
 			<li>projets</li>
 			<li>contact</li>
-			<li><a href="/login.html">login</a></li>
-			<li><a id="logout-link" href="#">Déconnexion</a></li>
+			<li><a id="login-link" href="/login.html">login</a></li>
+			<li><a id="logout-link" href="#">logout</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -36,33 +39,58 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
-		
-
-	<div id="btnModify">
-		<a href="#modal1" aria-hidden="true" class="js-modal">Modifier</a>
+		<div class="containerProjets">
+			<h2>Mes Projets</h2>
+			<div id="btnModify2">
+				<a href="#modal2" aria-hidden="true" class="js-modal"><img src="assets/icons/Group.png"> Modifier</a>
+			</div>
 		</div>
+		
 	
 	
 		<aside id="modal1" class="modal" aria-hidden="true" style="display: none;">
 			<div class="modal-wrapper js-modal-stop">
-				<button class="js-modal-close">X</button>
+				<button class="js-modal-back" data-target="#modal2"><img src="assets/icons/arrow-left.png"></button>
+				<button class="js-modal-close"><img src="assets/icons/xmark.png"></button>
 				<h2>Ajout photo</h2>
 				<form id="uploadForm">
-					<input type="file" id="imageInput" accept="image/*" />
-					<input type="text" id="titleInput" placeholder="Title" />
+					<div class="file-input-wrapper">
+						<input type="file" id="imageInput" accept="image/*" />
+						<img id="filePicture" src="assets/images/picture1.png"">
+						<img id="uploadedImage" class="uploaded-image">
+						<button id="fileInputButton">+ Ajouter Photo</button>
+						<p id="fileInputText">jpg, png : 4mo max</p>
+					  </div>
+					<label for="titleInput">Titre</label>
+					<input type="text" id="titleInput"/>
+					<label for="categorySelect">Catégorie</label>
 					<select id="categorySelect">
+						<option value=""></option>
 						<option value="1">Objets</option>
 						<option value="2">Appartements</option>
 						<option value="3">Hotels & restaurants</option>
 					</select>
-					<button type="submit">Upload</button>
+					<hr>
+					<button id ="sumbitForm" type="submit">Valider</button>
 				</form>
 				
 			</div>
 		</aside>
-	
-	
+		  
+		  
+
+	  <aside id="modal2" class="modal" aria-hidden="true" style="display: none;">
+		<div class="modal-wrapper js-modal-stop">
+			<button class="js-modal-close"><img src="assets/icons/xmark.png"></button>
+				<h2>Galerie photo</h2>
+			<div class="gallery2" id="gallery2">
+			</div>
+		<div id="btnModify">
+			<hr>
+			<button id="openModal2" class="js-modal" data-target="#modal1">Ajouter une photo</button>
+		</div>
+	  </aside>
+	  
 	
 		<div class="filters" id="categoryButtons"></div>
 		<div class="gallery" id="gallery">	
@@ -78,7 +106,7 @@
 			<input type="email" name="email" id="email">
 			<label for="message">Message</label>
 			<textarea name="message" id="message" cols="30" rows="10"></textarea>
-			<input type="submit" value="Envoyer">
+			<button type="submit">Envoyer</button>
 		</form>
 	</section>
 </main>

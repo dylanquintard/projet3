@@ -49,7 +49,7 @@ table {
 /** end reset css**/
 body {
 	max-width: 1140px;
-	margin:auto;
+	margin: auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
 }
@@ -95,6 +95,15 @@ nav li {
 	font-size: 1.2em;
 }
 
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	color: #B1663C;
+}
+
 li:hover {
 	color: #B1663C;
 }
@@ -138,6 +147,7 @@ button {
 	border: 1px solid #1D6154;
 	margin-bottom: 3em;
 	align-items: center;
+	text-align: center;
 	padding: 10px 20px 10px 20px;
 	color: #1D6154; 
 }
@@ -164,6 +174,38 @@ button p {
 	width: 100%;
 
 }
+
+.gallery2 {
+	width: 80%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+  
+  .gallery2 img:not(.delete-button) {
+    width: 100%;
+}
+
+.delete-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: black;
+    border: none;
+    cursor: pointer;
+	border-radius: 0px;
+	align-items: center;
+	text-align: center;
+	padding: 4px;
+}
+
+/* Style pour la classe figure */
+figure {
+    position: relative;
+    display: inline-block; /* Pour que les figures s'affichent côte à côte */
+    margin: 10px; /* Espacement entre les figures */
+}
+
+
 #contact {
 	width: 50%;
 	margin: auto;
@@ -196,9 +238,24 @@ button p {
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
+#contact button[type="submit"] {
+    font-family: 'Syne';
+    font-weight: 700;
+    color: white;
+    background-color: #1D6154;
+    margin: 2em auto;
+    width: 180px;
+    text-align: center;
+    border-radius: 60px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+}
+
 #login {
 	width: 40%;
 	margin: auto;
+	margin-top: 150px;
 }
 
 
@@ -209,6 +266,7 @@ button p {
 #login h2{
 	margin-bottom: 20px;
 }
+
 #login form {
 	text-align: left;
 	margin-top:30px;
@@ -232,15 +290,16 @@ button p {
 	color: black;
 }
 
-button[type="submit"]{
-	font-family: 'Syne';
-	font-weight: 700;
-	color: white;
-	background-color: #1D6154;
-	margin : 2em auto ;
-	width: 180px;
-	text-align: center;
-	border-radius: 60px ;
+button[type="submit"] {
+    font-family: 'Syne';
+    font-weight: 700;
+    color: white;
+    background-color: #1D6154;
+    margin: 2em auto;
+    width: 180px;
+    text-align: center;
+    border-radius: 60px;
+	cursor: pointer;
 }
 
 footer nav ul {
@@ -249,24 +308,208 @@ footer nav ul {
 	margin: 2em
 }
 
-#btnModify {
-	display: none;
+.containerProjets {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	gap: 30px;
 }
 
+#btnModify2 {
+	display: none;
+	margin-bottom: 25px;
+}
 
 .modal {
+	z-index: 1000;
 	display: flex;
+	position: fixed;
 	align-items: center;
 	justify-content: center;
-	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;	
+	height: 100%;
 }
 
 .modal-wrapper {
-	width: 630px;
+	position: relative;
+	background-color: #ffffff;
+	border-radius: 10px;
+	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 	padding: 20px;
-	background-color: #B1663C;
+	width: 630px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+  }
+
+.modal h2 {
+	color: #000;
+	text-align: center;
+	font-family: Work Sans;
+	font-size: 26px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal; 
+	margin-top: 60px;
+}
+
+.js-modal-close {
+	background-color: transparent;
+	border: none;
+	color: #000000;
+	font-size: 24px;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	cursor: pointer;
+  }
+
+  .js-modal-close:hover {
+	background-color: transparent;
+  }
+
+  .js-modal-back {
+	background-color: transparent;
+	border: none;
+	color: #000000;
+	font-size: 24px;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	cursor: pointer;
+  }
+
+  .js-modal-back:hover {
+	background-color: transparent;
+  }
+
+  .file-input-wrapper {
+	display: flex;
+	position: relative;
+	overflow: hidden;
+	background-color: #E8F1F6;
+	width: 420px;
+	height: 169px;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 20px;
+	margin-bottom: 30px;
+  }
+
+  .file-input-wrapper p {
+	margin: 0;
+	color: #444;
+	text-align: center;
+	font-family: Work Sans;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal; 
+  }
+  
+  .file-input-wrapper input[type="file"] {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+  }
+  
+#fileInputButton {
+	background-color: #CBD6DC;
+	color: #306685;
+	border: none;
+	font-family: Work Sans;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal; 
+	cursor: pointer;
+	margin: 5px;
+  }
+
+#titleInput, #categorySelect {
+	display: flex;
+	width: 100%;
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	background-color: white;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	margin: 1em 0 1em 0;
+  }
+
+.modal hr {
+	size: 10px;
+	background-color: #B3B3B3;
+	color: black;
+	height: 1px;
+	border: none;
+	margin-top: 50px;
+}
+
+#openModal2 {
+	background-color: #1D6154;
+	color: white;
+	border: none;
+	font-size: 14px;
+	font-family: Syne;
+	font-style: normal;
+	font-weight: 700; 
+	padding: 10px 50px 10px 50px;
+	cursor: pointer;
+}
+
+#openModal2:hover {
+	background-color: #A7A7A7;
+}
+
+#sumbitForm {
+	justify-content: center;
+	background-color: #A7A7A7;
+	border: none;
+	cursor: pointer;
+}
+
+.uploaded-image {
+    max-height: 125%;
+    height: auto;
+	margin: 0;
+	padding: 0;
+}
+
+#login-link {
+	display: block;
+}
+
+#logout-link {
+	display: none;
+}
+
+#editMode {
+    height: 60px;
+    background-color: black;
+    display: none;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+#editMode a {
+	color: #FFF;
+	font-family: Work Sans;
+	font-size: 16px;
+}
+
+#btnModify hr {
+	width: 210%;
+	margin-left: -125px;
+	margin-bottom: 45px;
 }
