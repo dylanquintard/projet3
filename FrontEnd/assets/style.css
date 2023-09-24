@@ -478,6 +478,10 @@ footer nav ul {
 	cursor: pointer;
 }
 
+#sumbitForm.active {
+	background-color: green;
+}
+
 .uploaded-image {
     max-height: 125%;
     height: auto;
